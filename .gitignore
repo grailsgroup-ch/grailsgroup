@@ -33,3 +33,5 @@
 /target
 /.idea/
 /grailsgroup.iml
+/.slcache/
+/grailsgroup-grailsPlugins.iml

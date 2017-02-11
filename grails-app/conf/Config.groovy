@@ -10,7 +10,6 @@
 //    grails.config.locations << "file:" + System.properties["${appName}.config.location"]
 // }
 
-
 grails.project.groupId = appName // change this to alter the default package name and Maven publishing destination
 grails.mime.file.extensions = true // enables the parsing of file extensions from URLs into the request format
 grails.mime.use.accept.header = false
@@ -33,7 +32,6 @@ grails.mime.types = [ html: ['text/html','application/xhtml+xml'],
 
 // What URL patterns should be processed by the resources plugin
 grails.resources.adhoc.patterns = ['/images/*', '/css/*', '/js/*', '/plugins/*']
-
 
 // The default codec used to encode data with ${}
 grails.views.default.codec = "none" // none, html, base64
@@ -63,7 +61,6 @@ grails.hibernate.cache.queries = true
 grails.plugin.databasemigration.updateOnStart=true
 grails.plugin.databasemigration.updateOnStartFileNames = ['changelog.groovy']
 
-
 ggs.redirectMailAdress = "" //Sollen Mails an diese Adresse weitergeleitet werden? default: keine Weiterleitung
 
 //resources plugin config
@@ -75,47 +72,28 @@ grails.resources.adhoc.patterns = ["/images/*", "*.css", "*.js"]
 
 // set per-environment serverURL stem for creating absolute links
 environments {
-    development {
-        grails.logging.jul.usebridge = true
+	development {
+		grails.logging.jul.usebridge = true
 		ggs.redirectMailAdress = "salim.hermidas@webapps.ch" //keine Mails in dev env versenden
 		quartz {
 			autoStartup = false
 		}
-    }
+	}
 	test {
-		grails.logging.jul.usebridge = false
-		ggs.redirectMailAdress = "salim.hermidas@webapps.ch" //keine Mails in test env versenden
+		grails.logging.jul.usebridge = true
+		ggs.redirectMailAdress = "salim.hermidas@webapps.ch" //keine Mails in dev env versenden
 		quartz {
 			autoStartup = false
 		}
 	}
-    production {
-        grails.logging.jul.usebridge = false
-        grails.serverURL = "http://grailsgroup.ch"
-    }
-}
-
-twitter {
-	disableTwitter4jController = false  // To avoid intruders to use controller alltogether.
-	'default' {
-	  debugEnabled          = false
-	  OAuthConsumerKey       = 'kJqlGZ4dApKO48m19n9kg'
-	  OAuthConsumerSecret    = '3NDRaSAW1Z0JVZCaWK3YVO4XY0dtncoOJzOiB8pmED8'
-	  OAuthAccessToken       = '337252542-HWejfnNIyNmvczWRcTsfPwcwVLQA29LugwQAkhqo'
-	  OAuthAccessTokenSecret = '736vjuFIpS4KqK8WY9sXRLIjSd7DQgPJALHmYf6g'
+	production {
+		grails.logging.jul.usebridge = false
+		grails.serverURL = "http://grailsgroup.ch"
 	}
 }
 
-
 // log4j configuration
 log4j = {
-    // Example of changing the log pattern for the default console
-    // appender:
-    //
-    //appenders {
-    //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
-    //}
-
 	   debug  'grails'
 	   error  'org.quartz'
 	   info   'org.codehaus.groovy.grails.web.servlet',  //  controllers
@@ -134,9 +112,13 @@ log4j = {
 }
 
 // Added by the Spring Security Core plugin:
-grails.plugins.springsecurity.userLookup.userDomainClassName = 'ch.grailsgroup.User'
-grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'ch.grailsgroup.UserRole'
-grails.plugins.springsecurity.authority.className = 'ch.grailsgroup.Role'
-grails.plugins.springsecurity.requestMap.className = 'ch.grailsgroup.Requestmap'
-grails.plugins.springsecurity.securityConfigType = 'Requestmap'
-grails.plugins.springsecurity.successHandler.defaultTargetUrl = '/dashboard'
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'ch.grailsgroup.User'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'ch.grailsgroup.UserRole'
+grails.plugin.springsecurity.authority.className = 'ch.grailsgroup.Role'
+grails.plugin.springsecurity.requestMap.className = 'ch.grailsgroup.Requestmap'
+grails.plugin.springsecurity.securityConfigType = 'Requestmap'
+grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/dashboard'
+
+// Supporting Old Passwords from Spring Security 1.x
+grails.plugin.springsecurity.password.algorithm = 'SHA-256'
+grails.plugin.springsecurity.password.hash.iterations = 1

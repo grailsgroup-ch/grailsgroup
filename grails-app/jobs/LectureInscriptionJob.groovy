@@ -14,6 +14,5 @@ class LectureInscriptionJob {
 		groupsessionDaysService.initialInvites()
 		groupsessionDaysService.reminderInvites()
 		groupsessionDaysService.reminderMail()
-		groupsessionDaysService.tweet()
     }
 }

@@ -1,6 +1,5 @@
 package ch.grailsgroup
 
-import grails.util.Environment;
 import org.codehaus.groovy.grails.web.mapping.LinkGenerator
 
 class GroupsessionDaysService {
@@ -88,29 +87,6 @@ class GroupsessionDaysService {
 	
 					def mailText = messageService.getMessage("mail.reminderMail", [groupsession.groupsessionDate.format("dd.MM.yyyy"), groupsession.groupsessionDate, groupsession.location, mailLectures, anmeldenLink, abmeldenLink])
 					mailService.sendMail(user.email, groupsession.toString(), mailText, true)
-				}
-			}
-		}
-	}
-	
-	
-	public void tweet(){
-		def groupsessions = groupsessionLists(settingsService.tweetingDayLimit)
-		def date
-		def lectures
-		def lectureText = ""
-		def tweetText
-		Groupsession.withTransaction{
-			groupsessions.each{
-				date = it.groupsessionDate.format("dd.MM.yyyy")
-				lectures = it.getLectures()
-				lectures.each{
-					lectureText = lectureText + ", #" + it.toString()
-				}
-				
-				tweetText = messageService.getMessage("tweet.groupsession", [date, lectureText])
-				if(Environment.currentEnvironment != Environment.DEVELOPMENT){
-					twitter4jService.updateStatus(tweetText)
 				}
 			}
 		}
