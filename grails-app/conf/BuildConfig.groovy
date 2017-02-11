@@ -2,8 +2,8 @@ grails.servlet.version = "3.0" // Change depending on target container complianc
 grails.project.class.dir = "target/classes"
 grails.project.test.class.dir = "target/test-classes"
 grails.project.test.reports.dir = "target/test-reports"
-grails.project.source.level = 1.8
-grails.project.target.level = 1.8
+grails.project.source.level = 1.7
+grails.project.target.level = 1.7
 grails.project.war.file = "target/${appName}-${appVersion}.war"
 
 grails.project.fork = [
@@ -58,6 +58,7 @@ grails.project.dependency.resolution = {
         compile ":cache-headers:1.1.7"
         compile ":cached-resources:1.0"
 
+        compile ":scaffolding:2.1.2"
         runtime ':database-migration:1.4.1'
         compile ":quartz:1.0.2"
         runtime ":spring-security-core:2.0.0"

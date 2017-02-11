@@ -74,15 +74,15 @@ grails.resources.adhoc.patterns = ["/images/*", "*.css", "*.js"]
 environments {
 	development {
 		grails.logging.jul.usebridge = true
-		ggs.redirectMailAdress = "salim.hermidas@webapps.ch" //keine Mails in dev env versenden
+		ggs.redirectMailAdress = "hostmaster@pillo-srv." //keine Mails in dev env versenden
 		quartz {
 			autoStartup = false
 		}
 	}
 	test {
 		grails.logging.jul.usebridge = false
-		grails.serverURL = "https://test.grailsgroup.ch"
-		ggs.redirectMailAdress = "salim.hermidas@webapps.ch" //keine Mails in dev env versenden
+		grails.serverURL = "https://grailsgroup.pillo-srv.ch"
+		ggs.redirectMailAdress = "hostmaster@pillo-srv.ch" //keine Mails in dev env versenden
 		quartz {
 			autoStartup = false
 		}
