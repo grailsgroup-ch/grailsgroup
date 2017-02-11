@@ -1,0 +1,1 @@
+<img src="${createLink(controller:'image',action:'index',params:[alias:image.alias,contentType:contentType]) }" ${entries.join(' ')}/>
