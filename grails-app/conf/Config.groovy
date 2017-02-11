@@ -80,7 +80,8 @@ environments {
 		}
 	}
 	test {
-		grails.logging.jul.usebridge = true
+		grails.logging.jul.usebridge = false
+		grails.serverURL = "https://test.grailsgroup.ch"
 		ggs.redirectMailAdress = "salim.hermidas@webapps.ch" //keine Mails in dev env versenden
 		quartz {
 			autoStartup = false
@@ -88,7 +89,7 @@ environments {
 	}
 	production {
 		grails.logging.jul.usebridge = false
-		grails.serverURL = "http://grailsgroup.ch"
+		grails.serverURL = "https://grailsgroup.ch"
 	}
 }
 

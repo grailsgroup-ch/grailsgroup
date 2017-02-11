@@ -9,9 +9,9 @@ class Settings extends Master{
 	String description
 	
 	static constraints = {
-		code(nullable: false, blank:false, maxSize:250, unique:true)
-		value(nullable: false, blank:false, maxSize:250)
-		description(nullable: false, blank:false, size:1..255)
+		code		nullable: false, blank:false, maxSize:250, unique:true
+		value		nullable: false, blank:false, maxSize:250
+		description	nullable: false, blank:false, size:1..255
 	}
 
 	String toString() {

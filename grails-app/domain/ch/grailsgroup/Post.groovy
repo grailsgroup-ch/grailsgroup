@@ -17,11 +17,11 @@ class Post extends Master{
 	}
 	
     static constraints = {
-		title(nullable:false, maxSize:250)
-		user(nullable:false)
-		content(nullable:false, maxSize: 8000, widget:'wysiwyg')
-		alias(nullable:false, maxSize:250)
-		publicationDate(nullable:true, display:false)
+		title			nullable:false, maxSize:250
+		user			nullable:false
+		content			nullable:false, maxSize: 8000, widget:'wysiwyg'
+		alias			nullable:false, maxSize:250
+		publicationDate	nullable:true, display:false
     }
 	
 	def beforeInsert(){

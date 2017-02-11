@@ -5,22 +5,22 @@ class Image {
 	byte[] image
 	String contentType
 	String alias
-	boolean oeffentlich
+	Boolean oeffentlich
 	
     static constraints = {
-		alias(blank:false, nullable:false, unique:true)
-		image(nullable: true, maxSize: 2048000 /* 2M */)
-		contentType(nullable:true, display:false)
-		oeffentlich(nullable:false)
+		alias		blank:false, nullable:false, unique:true
+		image		nullable: true, maxSize: 2048000 /* 2M */
+		contentType nullable:true, display:false
+		oeffentlich()
     }
 	
-	public String toString(){
+	String toString(){
 		return alias
 	}
 	
 	static transients =["filename"]
 	
-	public String getFilename(){
+	String getFilename(){
 		String fileEnd = contentType.split("/")[1]
 		return "${alias}.${fileEnd}"
 	}

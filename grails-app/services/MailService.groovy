@@ -1,18 +1,16 @@
-import javax.mail.internet.InternetAddress
-import javax.mail.internet.MimeMessage
-
 import org.springframework.beans.factory.InitializingBean
 import org.springframework.core.io.FileSystemResource
 import org.springframework.mail.MailException
-import org.springframework.mail.MailSender
 import org.springframework.mail.SimpleMailMessage
 import org.springframework.mail.javamail.JavaMailSenderImpl
 import org.springframework.mail.javamail.MimeMessageHelper
-import grails.util.GrailsUtil
+
+import javax.mail.internet.InternetAddress
+import javax.mail.internet.MimeMessage
 
 class MailService implements InitializingBean{
 	
-	boolean transactional = false
+	Boolean transactional = false
 	def settingsService
 	def grailsApplication
 	JavaMailSenderImpl mailSender

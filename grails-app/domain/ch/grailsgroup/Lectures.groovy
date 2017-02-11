@@ -9,14 +9,14 @@ class Lectures extends Master{
 	String summary
 	
 	static constraints = {
-		topic(nullable:false)
-		document(nullable:true)
-		presenter(nullable:false)
-		groupsession(nullable:true)
-		summary(nullable:false, blank:false, size:1..255)
+		topic			nullable:false
+		document		nullable:true
+		presenter		nullable:false
+		groupsession	nullable:true
+		summary			nullable:false, blank:false, size:1..255
 	}
 	
-	public String toString(){
+	String toString(){
 		return topic +" (" +  presenter.toString() + ")"
 	}
 	

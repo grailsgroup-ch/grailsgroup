@@ -9,15 +9,15 @@ class User extends Master{
 	String username
 	String password
 	String email
-	boolean enabled			= true
-	boolean accountExpired	= false
-	boolean accountLocked	= false
-	boolean passwordExpired	= false
+	Boolean enabled			= true
+	Boolean accountExpired	= false
+	Boolean accountLocked	= false
+	Boolean passwordExpired	= false
 
 	static constraints = {
-		username(blank: false, unique: true)
-		password(blank: false, password: true, minSize: 6)
-		email(blank: false, email:true)
+		username	blank: false, unique: true
+		password	blank: false, password: true, minSize: 6
+		email		blank: false, email:true
 	}
 
 	Set<Role> getAuthorities() {

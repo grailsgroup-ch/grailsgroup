@@ -10,7 +10,7 @@ class Requestmap extends Master{
 	}
 
 	static constraints = {
-		url blank: false, unique: true
+		url 			blank: false, unique: true
 		configAttribute blank: false
 	}
 }

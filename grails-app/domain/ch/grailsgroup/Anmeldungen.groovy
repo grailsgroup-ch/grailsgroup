@@ -8,7 +8,7 @@ class Anmeldungen extends Master{
 	Boolean angemeldet = false
 
     static constraints = {
-		user(nullable:false)
-		groupsession(nullable:false)
+		user			nullable:false
+		groupsession	nullable:false
     }
 }

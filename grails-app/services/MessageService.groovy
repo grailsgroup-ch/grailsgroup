@@ -8,7 +8,7 @@ import org.springframework.context.NoSuchMessageException
 class MessageService {
 	def settingsService
     MessageSource messageSource
-    boolean transactional = true
+    Boolean transactional = true
 
    /**
     * Gets translated message for given key, args and Locale
