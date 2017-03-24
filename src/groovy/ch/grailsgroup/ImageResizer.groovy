@@ -19,8 +19,8 @@ class ImageResizer {
 		//def limits = 300..2000
 		//assert limits.contains( width ) && limits.contains( height ) : 'Picture is either too small or too big!'
 	
-		float aspectRatio = width / height
-		float requiredAspectRatio = maxW / maxH
+		float aspectRatio = width / (float) height
+		float requiredAspectRatio = maxW / (float) maxH
 	
 		int dstW = 0
 		int dstH = 0

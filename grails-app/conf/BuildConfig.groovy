@@ -40,8 +40,8 @@ grails.project.dependency.resolution = {
         grailsHome()
         grailsCentral()
 
-        mavenRepo "http://repo.spring.io/milestone/"
-        mavenRepo "http://repo.grails.org/grails/core/"
+        mavenRepo "https://repo.spring.io/milestone/"
+        mavenRepo "https://repo.grails.org/grails/core/"
     }
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
