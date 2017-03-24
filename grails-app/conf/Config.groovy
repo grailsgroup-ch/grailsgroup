@@ -93,23 +93,88 @@ environments {
 	}
 }
 
-// log4j configuration
-log4j = {
-	   debug  'grails'
-	   error  'org.quartz'
-	   info   'org.codehaus.groovy.grails.web.servlet',  //  controllers
-			  'org.codehaus.groovy.grails.web.pages', //  GSP
-			  'org.codehaus.groovy.grails.web.sitemesh', //  layouts
-			  'org.codehaus.groovy.grails.web.mapping.filter', // URL mapping
-			  'org.codehaus.groovy.grails.web.mapping', // URL mapping
-			  'org.codehaus.groovy.grails.commons', // core / classloading
-			  'org.codehaus.groovy.grails.plugins', // plugins
-			  'org.codehaus.groovy.grails.orm.hibernate', // hibernate integration
-			  'org.springframework',
-			  'org.hibernate',
-			  'net.sf.ehcache.hibernate'
-   
-	   warn   'org.mortbay.log'
+//******************************************************
+//     Log4j Configuration
+//    dev: debug to console
+//    test: debug to file
+//    prod: info to file
+//    Logging hints see: http://stackoverflow.com/questions/6724531/grails-log4j-not-logging-in-production
+//
+//******************************************************
+environments {
+	development {
+		log4j = {
+
+			debug 'grails.app.jobs',                                // Jobs
+					'grails.app.domain',                             // Domain Logs
+					'grails.app.controllers',                         // Controller Logs
+					'grails.app.services',                              // Services Logs
+					'grails.app.conf',
+					'grails.plugins.twitterbootstrap.BootstrapResources'
+			warn 'org.springframework',
+					'org.hibernate',
+					'net.sf.ehcache.hibernate'
+			error 'org.codehaus.groovy.grails.web.servlet',
+					'org.codehaus.groovy.grails.web.pages',          // GSP
+					'org.codehaus.groovy.grails.web.sitemesh',       // layouts
+					'org.codehaus.groovy.grails.web.mapping.filter', // URL mapping
+					'org.codehaus.groovy.grails.web.mapping',        // URL mapping
+					'org.codehaus.groovy.grails.commons',            // core / classloading
+					'org.codehaus.groovy.grails.plugins',            // plugins
+					'org.codehaus.groovy.grails.orm.hibernate',      // hibernate integration
+					'dalew.CookieService',
+					'grails.app.services.com.dalew.CookieService',
+					'net.sf.ehcache.hibernate.AbstractEhcacheRegionFactory'
+		}
+	}
+
+	test {
+		log4j = {
+			debug 'grails.app.jobs',                                // Jobs
+					'grails.app.domain',                             // Domain Logs
+					'grails.app.controllers',                         // Controller Logs
+					'grails.app.services',                              // Services Logs
+					'grails.app.conf'
+			warn 'org.springframework',
+					'org.hibernate',
+					'net.sf.ehcache.hibernate'
+			error 'org.codehaus.groovy.grails.web.servlet',
+					'org.codehaus.groovy.grails.web.pages',          // GSP
+					'org.codehaus.groovy.grails.web.sitemesh',       // layouts
+					'org.codehaus.groovy.grails.web.mapping.filter', // URL mapping
+					'org.codehaus.groovy.grails.web.mapping',        // URL mapping
+					'org.codehaus.groovy.grails.commons',            // core / classloading
+					'org.codehaus.groovy.grails.plugins',            // plugins
+					'org.codehaus.groovy.grails.orm.hibernate',      // hibernate integration
+					'dalew.CookieService',
+					'grails.app.services.com.dalew.CookieService',
+					'net.sf.ehcache.hibernate.AbstractEhcacheRegionFactory'
+		}
+	}
+
+	production {
+		log4j = {
+			info 'grails.app.jobs',                                // Jobs
+					'grails.app.domain',                             // Domain Logs
+					'grails.app.controllers',                         // Controller Logs
+					'grails.app.services',                             // Services Logs
+					'grails.app.conf'
+			error 'org.springframework',
+					'org.hibernate',
+					'net.sf.ehcache.hibernate',
+					'org.codehaus.groovy.grails.web.servlet',
+					'grails.app.services.com.dalew.CookieService',
+					'org.codehaus.groovy.grails.web.pages',          // GSP
+					'org.codehaus.groovy.grails.web.sitemesh',       // layouts
+					'org.codehaus.groovy.grails.web.mapping.filter', // URL mapping
+					'org.codehaus.groovy.grails.web.mapping',        // URL mapping
+					'org.codehaus.groovy.grails.commons',            // core / classloading
+					'org.codehaus.groovy.grails.plugins',            // plugins
+					'org.codehaus.groovy.grails.orm.hibernate',      // hibernate integration
+					'dalew.CookieService',
+					'net.sf.ehcache.hibernate.AbstractEhcacheRegionFactory'
+		}
+	}
 }
 
 // Added by the Spring Security Core plugin:
