@@ -1,19 +1,17 @@
 package ch.grailsgroup
 
-class Groupsession extends Master{
+class Groupsession extends SiteEntry {
 	
 	Date groupsessionDate
 	String location
 	String locationGoogleUrl
 	String remark
-	Date publicationDate
 	
 	static constraints = {
 		groupsessionDate	nullable:false
 		location			nullable:false, maxSize:250
 		locationGoogleUrl	nullable:true, maxSize:500
 		remark				nullable:false, maxSize:8000, widget:'wysiwyg'
-		publicationDate		nullable:true
 	}
 	
 	List getLectures(){
@@ -22,10 +20,6 @@ class Groupsession extends Master{
 	
 	String toString(){
 		return "Group Session " + groupsessionDate.format("dd.MM.yyyy")
-	}
-	
-	def beforeInsert(){
-		publicationDate = new Date()
 	}
 	
 	/*
